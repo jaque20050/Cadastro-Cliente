@@ -4,7 +4,7 @@ use banco_de_usuarios;
 
 create table usuario(
  id integer auto_increment primary key,
- nome_completo varchar(200) not null,
+ nome varchar(200) not null,
  email varchar(50) not null,
  senha text not null,
  telefone varchar(15) not null

@@ -2,7 +2,6 @@ package br.com.criandoapi.projeto.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -15,16 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.criandoapi.projeto.model.Usuario;
-import br.com.criandoapi.projeto.repository.IUsuario;
 import br.com.criandoapi.projeto.repository.service.UsuarioService;
 
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/usuarios")
 public class UsuarioController {
-
-	@Autowired
-	private IUsuario dao;
 
 	private UsuarioService service;
 
@@ -44,13 +39,12 @@ public class UsuarioController {
 
 	@PutMapping
 	public ResponseEntity<Usuario> editarUsuario(@RequestBody Usuario usuario) {
-		Usuario usuarioNovo = dao.save(usuario);
-		return ResponseEntity.status(201).body(usuarioNovo);
+		return ResponseEntity.status(200).body(service.atualizarUsuario(usuario));
 	}
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> excluirUsuario(@PathVariable Integer id) {
-		dao.findById(id);
+		service.excluirUsuario(id);
 		return ResponseEntity.status(204).build();
 	}
 }

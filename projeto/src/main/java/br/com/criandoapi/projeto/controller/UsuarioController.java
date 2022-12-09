@@ -61,7 +61,7 @@ public class UsuarioController {
 	public ResponseEntity<Usuario> validarSenha(@Valid @RequestBody Usuario usuario) {
 		Boolean valid = service.validarSenha(usuario);
 		/*
-		 * Ele irá validar a senha do usuário, caso insira incorretamento, não será
+		 * Validar a senha do usuário, caso insira incorretamento, não será
 		 * liberado acesso.
 		 */
 		if (!valid) {
@@ -72,7 +72,9 @@ public class UsuarioController {
 	}
 
 	/*
-	 * Tratamento erros e exceções, pega e insira em uma lista
+	 * Tratamento erros e exceções, pega e insira em uma lista, e faz a validação de
+	 * dados
+	 * 
 	 */
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ExceptionHandler(MethodArgumentNotValidException.class)

@@ -2,9 +2,9 @@ package br.com.criandoapi.projeto;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 
-@SpringBootApplication(exclude = { SecurityAutoConfiguration.class }) // Desabilitando o security
+//@SpringBootApplication(exclude = { SecurityAutoConfiguration.class }) // Desabilitando o security
+@SpringBootApplication
 public class ProjetoApplication {
 
 	public static void main(String[] args) {
